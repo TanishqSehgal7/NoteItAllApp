@@ -9,10 +9,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NoteItAllApp">
+        android:theme="@style/Theme.NoteItAllAppTheme">
         <activity
             android:name=".note_feature.presentation.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.NoteItAllAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

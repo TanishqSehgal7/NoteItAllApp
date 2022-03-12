@@ -5,10 +5,7 @@ import androidx.room.Room
 import com.example.noteitallapp.note_feature.data.dataSource.NoteDatabase
 import com.example.noteitallapp.note_feature.data.repository.NoteRepositoryForDatabase
 import com.example.noteitallapp.note_feature.domain.repository.NoteRepository
-import com.example.noteitallapp.note_feature.domain.use_cases.AddNote
-import com.example.noteitallapp.note_feature.domain.use_cases.DeleteNoteUseCase
-import com.example.noteitallapp.note_feature.domain.use_cases.GetNotesByDesiredOrder
-import com.example.noteitallapp.note_feature.domain.use_cases.NotesUseCases
+import com.example.noteitallapp.note_feature.domain.use_cases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,7 +31,8 @@ object NoteAppModule {
     @Provides
     @Singleton
     fun provideNotesUseCases(notesRepository: NoteRepository) : NotesUseCases {
-        return NotesUseCases(getNotesUseCase = GetNotesByDesiredOrder(notesRepository), deleteNoteUseCase = DeleteNoteUseCase(notesRepository), addNote = AddNote(notesRepository))
+        return NotesUseCases(getNotesUseCase = GetNotesByDesiredOrder(notesRepository), deleteNoteUseCase = DeleteNoteUseCase(notesRepository), addNote = AddNote(notesRepository),
+        getNoteById = GetNotesByIdUseCase(notesRepository))
     }
 
 }
