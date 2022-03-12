@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
@@ -43,9 +44,9 @@ fun MakeNoteItemForDisplay(note: Note, modifier: Modifier=Modifier, cornerRadius
 
                 // rectangle for the flap on the card ... its color is blended with black
                 drawRoundRect(
-                    color = Color(ColorUtils.blendARGB(note.color,0x000000,0.2f)),
+                    color = Color(ColorUtils.blendARGB(note.color,0x000000,0.4f)),
                     topLeft = Offset(size.width-cutCornerRadius.toPx(),-100f),
-                    size = Size(cutCornerRadius.toPx()+100f,cutCornerRadius.toPx()+100f),
+                    size = Size(cutCornerRadius.toPx()+120f,cutCornerRadius.toPx()+120f),
                     cornerRadius = CornerRadius(cornerRadius.toPx())
                 )
 
@@ -77,7 +78,7 @@ fun MakeNoteItemForDisplay(note: Note, modifier: Modifier=Modifier, cornerRadius
         }
 
         // delete note icon
-        IconButton(onClick = onDeleteClick) {
+        IconButton(onClick = onDeleteClick, modifier = Modifier.align(Alignment.BottomEnd)) {
             Icon(imageVector = Icons.Default.Delete, contentDescription = "Delete Note")
         }
     }

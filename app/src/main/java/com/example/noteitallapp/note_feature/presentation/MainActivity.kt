@@ -21,9 +21,9 @@ import com.example.noteitallapp.note_feature.presentation.utils.ScreenClass
 import com.example.noteitallapp.ui.colorsAndTheme.NoteItallAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+@ExperimentalAnimationApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

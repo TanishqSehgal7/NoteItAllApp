@@ -82,7 +82,7 @@ fun MakeNotesMainScreen(navController: NavController,viewModel:NotesViewModel = 
                               if(result==SnackbarResult.ActionPerformed) {
                                   viewModel.onEvent(NotesEvent.RestoreNote)
                               }
-                      }
+                          }
                     })
                     Spacer(modifier = Modifier.height(16.dp))
                 }

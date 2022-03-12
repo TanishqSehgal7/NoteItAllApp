@@ -63,15 +63,15 @@ fun AddEditNotesScreen(navController: NavController, noteColor:Int, viewModel:Ad
         Column(modifier = Modifier
             .fillMaxSize()
             .background(noteBgAnimatable.value)
-            .padding(16.dp)) {
+            .padding(20.dp)) {
             Row(modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp), horizontalArrangement = Arrangement.SpaceBetween) {
+                .padding(10.dp), horizontalArrangement = Arrangement.SpaceBetween) {
                 Note.colorsForNotes.forEach { color->
                     val colorInt = color.toArgb()
                     Box(modifier = Modifier
-                        .size(50.dp)
-                        .shadow(15.dp, CircleShape)
+                        .size(30.dp)
+                        .shadow(20.dp, CircleShape)
                         .clip(CircleShape)
                         .background(color)
                         .border(
@@ -90,7 +90,7 @@ fun AddEditNotesScreen(navController: NavController, noteColor:Int, viewModel:Ad
                         })
                 }
             }
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             TransparentHintTextField(
                 text = titleState.text,
                 hint = titleState.hint,
@@ -116,8 +116,7 @@ fun AddEditNotesScreen(navController: NavController, noteColor:Int, viewModel:Ad
                 onFocusChange = {
                     viewModel.onEvent(AddEditNoteEvent.ChangeFocusContent(it))
                 },
-                isHintVisible = titleState.ishintVisible)
-
+                isHintVisible = contentState.ishintVisible)
         }
     }
 }
